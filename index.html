@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="/assets/images/favicon-32x32.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+    </style>
+    <style>
+        body {
+            background-color: var(--slate-100);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: "Plus Jakarta Sans", serif;
+            padding: 12px;
+            font-size: clamp(0.5rem, 10vw, 0.8rem);
+        }
+    </style>
+    <script src="index.js" defer></script>
+</head>
+<body>
+    <main class="container flex">
+        <div class="calculator_container">
+            <!-- Header -->
+            <section class="calculator_heading flex">
+                <h2>Mortgage Calculator</h2>
+                <p id="clearAll">Clear All</p>
+            </section>
+
+            <form action="">
+                <!-- Mortgage Amount -->
+                <section>
+                    <label for="mortgageAmount">Mortgage Amount</label>
+                    <div class="input-wrapper flex flex-row">
+                        <div class="flex input-prefix-left">£</div>
+                        <input type="number" id="mortgageAmount" required="required">
+                    </div>
+                    <span class="required_err_text"></span>
+                </section>
+
+                <!-- Mortgagae Term & Rate -->
+                <section class="mortgage_term_rate flex">
+                    <!-- Term -->
+                    <div>
+                        <label for="mortgageTerm">Mortgage Term</label>
+                        <div class="input-wrapper flex flex-row">
+                            <input type="number" id="mortgageTerm" required="required">
+                            <div class="flex input-prefix-right">years</div>
+                        </div>
+                        <span class="required_err_text"></span>
+                    </div>
+
+                    <!-- Rate -->
+                    <div>
+                        <label for="interestRate">Interest Rate</label>
+                        <div class="input-wrapper flex flex-row">
+                            <input type="number" id="interestRate" required="required">
+                            <div class="flex input-prefix-right">%</div>
+                        </div>
+                        <span class="required_err_text"></span>
+                    </div>
+                </section>
+
+                <!-- Mortgage Type -->
+                <section>
+                    <label for="">Mortgage Type</label>
+                    <!-- Repayment -->
+                    <div class="input_radio_border flex">
+                        <input type="radio" id="repayment" name="mortgageType" required="required">
+                        <span class="radio-circle">
+                            <span class="radio-circle-inner"></span>
+                        </span>
+                        <label for="repayment"> Repayment</label>
+                    </div>
+                    <!-- Interest -->
+                    <div class="input_radio_border flex">
+                        <input type="radio" id="interestOnly" name="mortgageType" required="required">
+                        <span class="radio-circle">
+                            <span class="radio-circle-inner"></span>
+                        </span>
+                        <label for="interestOnly">Interest Only</label>
+                    </div>
+                    <span class="required_err_text"></span>
+                </section>
+
+                <!-- Submit Button -->
+                <section>
+                    <button class="flex" type="submit" id="calculateRepayments">
+                        <span><img src="/assets/images/icon-calculator.svg" alt="" width="100%"></span>Calculate
+                        Repayments</button>
+                </section>
+            </form>
+        </div>
+
+        <div class="results_container">
+            <section class="results-default flex flex-column">
+                <img src="/assets/images/illustration-empty.svg" alt="">
+                <h2>Results shown here</h2>
+                <p>
+                    Complete the form and click “calculate repayments” to see what
+                    your monthly repayments would be.
+                </p>
+            </section>
+
+            <section class="calculated_results">
+                <h2>Your results</h2>
+                <br>
+                <p>
+                    Your results are shown below based on the information you provided.
+                    To adjust the results, edit the form and click “calculate repayments” again.
+                </p>
+                <div>
+                    <div>
+                        <p>Your monthly repayments</p>
+                        <span id="resultPerMonth"></span>
+                    </div>
+                    <hr>
+                    <div>
+                        <p>Total you'll repay over the term</p>
+                        <span id="resultOverTerm"></span>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+</body>
+
+</html>

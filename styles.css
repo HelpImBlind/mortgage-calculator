@@ -1,0 +1,370 @@
+:root {
+    --white: hsl(0, 0%, 100%);
+    --slate-100: hsl(202, 86%, 94%);
+    --slate-300: hsl(203, 41%, 72%);
+    --slate-500: hsl(200, 26%, 54%);
+    --slate-700: hsl(200, 24%, 40%);
+    --slate-900: hsl(202, 55%, 16%);
+    --lime: hsl(61, 70%, 52%);
+    --lime-focus: hsla(60, 72%, 93%, 40%);
+    --red: hsl(4, 69%, 50%);
+    --border-300: 2px solid var(--slate-300);
+    --border-lime: 2px solid var(--lime);
+    --border-radius-5px: 5px;
+    --border-radius-10px: 10px;
+    --border-radius-3px-left: 3px 0px 0px 3px;
+    --border-radius-3px-right: 0px 3px 3px 0px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Utility classes */
+
+.flex {
+    display: flex;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+/* General stylings */
+
+.container {
+    background-color: var(--white);
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    max-width: 900px;
+    border-radius: 20px;
+}
+
+label {
+    color: var(--slate-500);
+    font-weight: 600;
+}
+
+input[type="number"] {
+    width: 100%;
+    font-weight: bold;
+    font-size: 1.2em;
+    outline: none;
+    border: none; 
+    border-radius:var(--border-radius-5px);
+    padding: 0px 10px;
+    cursor: pointer;
+}
+
+input::-webkit-inner-spin-button { 
+    display: none;
+}
+
+.input-wrapper {
+    border-radius: var(--border-radius-5px);
+    border: var(--border-300);
+    margin: 10px 0px;
+    height: 40px;
+}
+
+.input-wrapper:focus-within {
+    border: 2px solid var(--lime);
+}
+
+.input-prefix-left {
+    color: var(--slate-500);
+    background-color: var(--slate-100);
+    border-radius: var(--border-radius-3px-left);
+    font-weight: bold;
+    padding: 5px 10px;
+    align-items: center;
+}
+
+.input-wrapper:focus-within .input-prefix-left {
+    background-color: var(--lime);
+    color: var(--slate-900);
+}
+
+.input-prefix-right {
+    color: var(--slate-500);
+    background-color: var(--slate-100);
+    border-radius: var(--border-radius-3px-right);
+    font-weight: bold;
+    padding: 5px 10px;
+    align-items: center;
+}
+
+.input-wrapper:focus-within .input-prefix-right {
+    background-color: var(--lime);
+    color: var(--slate-900);
+}
+
+/* Calculator & Results styling */
+.calculator_container, .results_container {
+    padding: 20px;
+}
+
+
+/* Calculator Section */
+.calculator_container {
+    width: clamp(100%, 10vw, 50%);
+}
+
+.calculator_container section {
+    margin: 12px 0px;
+}
+
+/* Calculator Container Heading - Flex */
+
+.calculator_heading {
+    justify-content: space-between;
+    align-items: end;
+    padding-bottom: 20px;
+    gap: 5px;
+}
+
+.calculator_heading h2 {
+    color: var(--slate-900);
+}
+
+.calculator_heading p {
+    color: var(--slate-500);
+    font-weight: 600;
+    line-height: 1.5;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.calculator_heading p:hover {
+    color: var(--slate-900);
+    font-weight: bold;
+}
+
+/* Mortgage Amount */
+
+/* .mortgage_amount input {
+    width: 100%;
+    max-width: 100% !important;
+} */
+
+/* Mortgage Term & Interest Rate */
+
+.mortgage_term_rate {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+
+/* Mortgage Type */
+
+.input_radio_border {
+    border-radius: var(--border-radius-5px);
+    border: var(--border-300);
+    height: 40px;
+    margin: 10px 0px;
+    padding: 20px;
+    align-items: center;
+}
+
+.input_radio_border label {
+    padding-left: 15px;
+    color: var(--slate-900);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.input_radio_border:focus-within {
+    border: var(--border-lime);
+    background-color: var(--lime-focus);
+}
+
+input[type="radio"] {
+    appearance: none;
+}
+
+.radio-circle {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1.3px solid var(--slate-900);
+    display: flex;
+    justify-content: center;    
+    align-items: center;
+}
+
+input[type="radio"]:checked + .radio-circle {
+    border-color: var(--lime);
+    background-color: var(--lime);
+}
+
+.radio-circle-inner {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 2px solid var(--white);
+}
+
+input[type="radio"]:checked + .radio-circle .radio-circle-inner {
+    background-color: var(--lime);
+}
+
+button {
+    width: clamp(100%, 10vw, 300px);
+    padding: 10px 20px;
+    background-color: var(--lime);
+    border: 0;
+    border-radius: 50px;
+    color: var(--slate-900);
+    font-weight: bold;
+    font-size: 1.1em;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Results Section */
+
+.results_container {
+    background-color: var(--slate-700);
+    width: clamp(100%, 10vw, 50%);
+    border-radius: 20px 20px 20px 100px;
+    border-top-left-radius: 0;
+}
+
+.results-default {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    gap: 15px;
+}
+
+.results-default h2 {
+    font-size: 1.3em;
+    color: var(--white);
+}
+
+.results-default p {
+    font-size: 0.9em;
+    font-weight: 600;
+    color: var(--slate-300);
+}
+
+/* Results from JS */
+
+.calculated_results {
+    margin: 20px 0px;
+    display: none;
+}
+
+.calculated_results h2 {
+    color: var(--white);
+}
+
+.calculated_results > p {
+    color: var(--slate-100);
+    font-weight: 400;
+    font-size: 0.8em;
+    line-height: 1.5;
+}
+
+.calculated_results > div {
+    border-top: 4px solid var(--lime);
+    background-color: var(--slate-900);
+    border-radius: var(--border-radius-10px);
+    padding: 20px;
+    margin: 40px 0px 20px;
+}
+
+.calculated_results > div p {
+    color: var(--slate-300);
+    margin-bottom: 10px;
+}
+
+#resultPerMonth {
+    color: var(--lime);
+    font-size: 3em;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin: 10px 0px;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+#resultOverTerm {
+    color: var(--white);
+    font-size: 1.5em;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin: 10px 0px;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+.calculated_results > div hr {
+    border: 1px solid var(--slate-700);
+    margin: 25px 0px;
+}
+
+/* Error Span section */
+
+.required_err_text {
+    color: var(--red);
+    font-size: 0.8em;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.required_err_input {
+    border: 2px solid var(--red);
+}
+
+.requiered_err_prefix {
+    background-color: var(--red);
+    color: var(--white);
+    font-weight: bold;
+}
+
+/* Mobile */
+
+@media screen and (max-width: 768px) {
+   body {
+        justify-content: start;
+   }
+
+    .container {
+        flex-direction: column;
+    }
+ 
+    .container, .results_container {
+        border-radius: 0;
+    }
+
+    input[type="number"] {
+        max-width: 100%;
+    }
+
+    .calculator_heading {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .calculator_heading h2 {
+        margin-bottom: 10px;
+    }
+
+    .mortgage_term_rate {
+        flex-direction: column;
+    }
+
+}
